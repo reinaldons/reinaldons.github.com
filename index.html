@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+      body { background: #333; text-shadow: 0 1px 1px rgba(0,0,0,.5); }
+
+      @-webkit-keyframes greenPulse {
+        from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+        50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+        to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+      }
+ 
+      @-webkit-keyframes bluePulse {
+        from { background-color: #007d9a; -webkit-box-shadow: 0 0 9px #333; }
+        50% { background-color: #2daebf; -webkit-box-shadow: 0 0 18px #2daebf; }
+        to { background-color: #007d9a; -webkit-box-shadow: 0 0 9px #333; }
+      }
+
+      @-webkit-keyframes redPulse {
+        from { background-color: #bc330d; -webkit-box-shadow: 0 0 9px #333; }
+        50% { background-color: #e33100; -webkit-box-shadow: 0 0 18px #e33100; }
+        to { background-color: #bc330d; -webkit-box-shadow: 0 0 9px #333; }
+      }
+
+      @-webkit-keyframes orangePulse {
+        from { background-color: #d45500; -webkit-box-shadow: 0 0 9px #333; }
+        50% { background-color: #ff5c00; -webkit-box-shadow: 0 0 18px #ff5c00; }
+        to { background-color: #d45500; -webkit-box-shadow: 0 0 9px #333; }
+      }
+
+      a.button {
+        text-decoration: none;
+        color: #FFF;
+        -webkit-border-radius: 5px;
+        -webkit-animation-duration: 10s;
+        -webkit-animation-iteration-count: infinite; 
+      }
+
+      .large.button { font-size: 14px; padding: 5px 10px }
+
+      .green.button { -webkit-animation-name: greenPulse; }
+      .blue.button { -webkit-animation-name: bluePulse; }
+      .red.button { -webkit-animation-name: redPulse; }
+      .orange.button { -webkit-animation-name: orangePulse; }
+
+      .wall-of-buttons { position: absolute; top: 50%; left: 60%; margin-left: -50px; margin-top: -50px }
+      .wall-of-buttons a.button { display: inline-block; margin: 0 10px 9px 0; }
+    </style>
+  </head>
+  <body>
+    <div class="wall-of-buttons">
+      <a class="large blue button" href="http://facebook.com/reinaldo">facebook</a>
+      <a class="large green button" href="http://twitter.com/rnsanches">twitter</a>
+      <a class="large red button" href="http://github.com/reinaldons">github</a>
+      <a class="large orange button" href="http://linkedin.com/in/reinaldo">linkedin</a>
+    </div>
+  </body>
+</html>
