@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Seminario SBC</title>
+
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+  </head>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+
+      <article>
+        <h1>
+          ---
+        </h1>
+        <p>
+          Camila Coelho Sanches
+          <br>
+          Reinaldo Nolasco Sanches
+        </p>
+      </article>
+
+
+
+
+
+      <!-- Agent Toolkits start -->
+      <article>
+        <h2>
+          Agent Toolkits
+        </h2>
+        <h3>
+          Introdução
+        </h3>
+        <p>São características de sistemas baseados em agentes:</p>
+        <ul>
+          <li>
+            Autonomia: agentes podem iniciar e controlar ações através de papéis pré-definidos. Um agente não somente executa comandos, mas avalia e coopera com outros agentes para executá-los, delegá-los ou rejeitá-los. Agentes podem alterar seu comportamento com base em comportamentos históricos e adaptar-se a alterações no ambiente.
+          </li>
+          <li>
+            Cooperação: agentes compartilham informação e comunicam-se com outros agentes através de linguagens, protocolos e ontologias. A troca de mensagens permite a coordenação de ações com outros agentes.
+          </li>
+          <ul >
+            <li class="orange">
+              FIPA (<i>Foundation for Intelligent Physical Agents</i>): padrões para o desenvolvimento de sistemas baseados em agentes.
+            </li>
+          </ul>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Toolkits
+        </h3>
+          <p>
+            Sistemas multi-agentes (<i>MAS</i>) utilizam mecanismos comuns de comunicação, localização (<em>discovery</em>), coordenação (negociação e organização) e segurança.
+          </p>
+          <p>
+            <b>Toolkit</b>: Serviços de infra-estrutura para a construção de agentes, independente do domínio da aplicação, com a separação entre agentes individuais e a arquitetura de suporte. Tipos: APIs, IDEs e plataformas <em>middleware</em>.
+          </p>
+          <ul>
+            <li class="orange">
+              <i>Middleware</i>: software reutilizável que reside entre a aplicação e sistemas operacionais, protocolos de rede e hardware. Funciona como uma ponte entre o programa e a infraestrutura de software e hardware de baixo nível responsável por gerenciar a conexão e interoperabilidade entre componentes.
+            </li>
+          </ul>
+          <img src="images/zeus.gif" height="40%" />
+          <br><small class="orange"><i>Componentes do Toolkit ZEUS</i></small>
+          <!-- tk: "Sistema operacional" de suporte à computação baseada em agentes. -->
+      </article>
+
+      <article>
+        <h3>
+          Seleção de toolkits - Critérios
+        </h3>
+        <ul>
+          <li>
+            "Deploy and aid": além de prover a infra-estrutura para o <em>design</em> (arquitetura) e desenvolvimento (implementação), prover ferramentas auxiliares como interfaces gráficas e serviços de monitoramento de agentes.
+          </li>
+          <p>"Framework genérico" com definição de componentes básicos de um <i>toolkit</i>:</p>
+          <ul>
+            <li>Separar o desenvolvimento de agentes individuais do ambiente em que os agentes interagem.</li>
+            <li>Definir mecanismos de interação (serviços de comunicação e transferência de mensagens), categorizados em:
+              <ul>
+                <li>Low-level (baixo nível): serviços de infraestrutura, como protocolos de <i>multicasting</i></li>
+                <li>High-level (alto nível): serviços operacionais, como ontologias e mecanismos de descoberta e coordenação entre agentes</li>
+              </ul>
+            </li>
+            <li>Serviços de gerenciamento: monitoramento e <i>debugging</i> (GUIs e IDEs)</li>
+          </ul>
+      </article>
+
+
+      <article>
+        <p>
+          <img class='centered' src="images/genericfw.png" style="height: 600px !important">
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          ZEUS
+        </h3>
+        <p>
+          Origem: BTExact , 1997. Aplicado a sistema de engenharia de processos e de gerenciamento de informações multimídia. Open-source.
+        </p>
+        <p>
+          Apresenta a solução para os seguintes problemas:
+        </p>
+        <ul>
+          <li>Information Discovery: Métodos para obter informação sobre os demais agentes ("catálogo de agentes").</li>
+          <li>Comunicação: Definição de uma linguagem comum para a troca de mensagens.</li>
+          <li>Ontologias: Definição de um método comum para a representação das mensagens.</li>
+          <li>Coordenação: Mecanismos comuns de coordenação (adicionais, dependem do domínio da aplicação)</li>
+          <li>Integração com software legado: Mecanismos de interface entre agentes e programas externos.</li>
+        </ul>
+        <!--[Nota [British Telecom]] -->
+      </article>
+
+      <article>
+        <h3>
+          ZEUS
+        </h3>
+        <img src="images/zeusarch.png" height="80%" />
+      </article>
+
+      <article>
+        <h3>
+          ZEUS
+        </h3>
+        <p>
+          Agentes na perspectiva do ZEUS, são: <em>deliberativos</em>: possuem conhecimento explícito sobre seus objetivos e ações; <em>Dirigidos por objetivos</em>: atuam para atingir um objetivo específico; <em>Versáteis</em>: podem executar mais de uma tarefa. Além disso devem basear-se em fatos ("truthful") e operar continuamente, podendo sincronizar com um relógio.
+        </p>
+        <p>
+          ZEUS disponibiliza <em>utility agents</em>, para diferenciar dos <em>task agents</em> (agentes da aplicação), "agentes genéricos" com as seguintes funcionalidades:
+        </p>
+        <ul>
+          <li>
+            Discovery: mecanismos de troca de mensagens (<strong>mailbox</strong>, <strong>message handlers</strong>) e bases de dados compartilhados entre agentes: <strong>resource</strong>: info. das interfaces externas e de cada agente, e <strong>acquaintance</strong>: info. sobre os demais agentes.
+          </li>
+          <li>
+            Motor de coordenação e <strong>scheduler</strong>: selecionar objetivos e protocolos disponíveis para a interação entre agentes, planos de execução e temporização conforme objetivo. Além de definir os "peers" (papel de agentes que comunicam-se entre si), permite definir uma estrutura organizacional hierárquica ("superior/subordinate") de papéis de agentes.
+          </li>
+        </ul>
+        <!--[Nota: comps de alto-nivel, "engessa" para permitir a alteracao pelas ferramentas graficas, mas o codigo é aberto e pode ser adaptado]-->
+      </article>
+
+      <article>
+        <h3>
+          ZEUS
+        </h3>
+        <p>Mecanismos multi-agentes:</p>
+        <ul>
+          <li>
+            Baixo-nivel: troca de mensagens via TCP/IP (ASCII, portavel)
+          </li>
+          <li>
+            Alto-nivel: ANS (<em>agent name server</em>) registra os agentes que irão se comunicar mapeando o nome e a localização lógica na rede, ou requisitam a um "agente facilitador", que possui a lista das interfaces dos agentes registrados.
+          </li>
+        </ul>
+        <p>
+          Comunicação: FIPA ACL (Agent Communication Language)  e componente de ontologias para formulação das mensagens.
+        </p>
+        <p>
+          Ferramentas: editor de ontologias (criar ou importar) e de agentes (parâmetros de planos, tarefas, recursos, papéis e protocolos, e configuração de agentes-utilitarios).
+        </p>
+        <p>
+          Monitoramento: serviçoes para verificar a troca de mensagens, progresso das tarefas, estado interno dos agentes e gerar estatísticas.
+        </p>
+        <!--[Nota:] [impl. do mailbox/msg handler] [geracao de codigo]-->
+      </article>
+
+
+      <article>
+        <h3>
+          RETSINA
+        </h3>
+        <p>
+          Origem: 1995 (Carnegie Mellon), multiplataforma. RETSINA: <em>reusable environmento for task-structured intelligent network agents</em>.
+        </p>
+        <p>
+          Características dos agentes para operar no retsina:
+        </p>
+        <ul>
+          <li>
+            Sistemas multiagentes, que interagem via linguagem comum e ontologias. "Black box" com convenções de comunicação.
+          </li>
+          <li>
+            Peer-to-peer: ao invés de uma abordagem centralizada de estrutura social, modelos hierárquicos devem imergir a partir de interação entre os pares.
+          </li>
+        </ul>
+        <p>
+          Implementação técnica:
+        </p>
+        <ul>
+          <li>Agentes derivam de <em>BasicAgent</em>: mecanismos de troca de mensagens, descoberta de clientes, módulo de ciclo de vida (inicio/finalização de agentes) e <em>timing</em>.</li>
+          <li>Especializações pré-definidas de agentes (outras podem ser implementadas sob demanda):
+            <ul>
+              <li>Interface agent: recebe entrada do usuário e apresenta resultados</li>
+              <li>Task agent: executa o objetivo, formulando planos coordenados com outros agentes</li>
+              <li>Information agent: interage com bases de dados ou páginas web para recuperar informações</li>
+              <li>Middle agent: infraestrutura, descobrem os serviços disponíveis entre agentes. </li>
+              <li><em>Matchmakers</em>: mapeamento entre agentes e serviços (por exemplo, "brokers")</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Mecanismos de multi-agentes: </p>
+        <ul>
+          <li>Baixo-nivel: protocolo multicast (Simple Service Discovery Protocol) e mecanismos de segurança de autenticação e troca de chaves na comunicação (protocolo SSL).</li>
+          <li>Alto-nível: KQML ACL. Componente ANS para registro e lookup de agentes, e dinâmico (multicasts).</li>
+        </ul>
+        <!--[Ao inserir um agente ele deve informar sua presenca via multicast, e a resposta ocorre via TCP/IP (IP e porta para a comunicacao com o sistema de discovery)]-->
+        <!--[Nota: [predecessor do FIPA de acordo com a wikipedia]]-->
+        <!--<p>[para manter a separacao entre mecanismos operacionais e de infraestrutura, nao ha suporte a mecanismos de coordenacao ou de organizacao hierarquica, pois sao considerados dependentes de dominio.]</p>-->
+        <ul>
+          <li>Ferramentas: integra-se ao VisualStudio. Ferramenta para edição KQML e monitoramento (logger service) da transição de estados e atividades (activity visualizer).</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          IMPACT
+        </h3>
+          <p>
+            Proveniente da academia, utilizado em aplicacoes militares (logística do exército, simular combates, etc.)
+          </p>
+          <p>
+            Garantia de operação "correta" a partir de "checks" de consistência e restrições estritamente parametrizadas. Framework composto por 2 partes:
+          </p>
+          <ul>
+            <li>
+              Código: dados e funções que manipulam dados
+            </li>
+            <li>
+              Wrapper: a função de aplicação ("inteligência") dos agentes. Componentes básicos de controle: permissões, restrições, base de ação (descrição e precondição para a execução de ações) que combinados atendem a arquitetura IMPACT. Linguagem própria: "do", "permitted", "forbidden", etc. <i>Metaknowledge</i>: conhecimento de outros agentes.
+            </li>
+          </ul>
+          <ul>
+            <li>
+              Baixo-nivel: RMI (Java) - "agent roost" e modulos de conexao a modulos externos como servidores Oracle:
+            </li>
+            <li>
+              Alto-nível: Agentes devem ser registrados nos servidores impact, linguagem propria de descricao de servicos semelhante a HTML. [MEssage-box e coordenacao ficam a cargo do desenvolvedor.]
+            </li>
+            <li>
+              Ferramentas: IDE (ImpactDE) e visualização gráfica dos "roosts" para monitorar o estado interno dos agentes
+            </li>
+          </ul>
+      </article>
+
+
+      <article>
+        <h2>
+          JADE
+        </h2>
+        <h3>
+          Origem
+        </h3>
+        <p>
+          Italy Telecom, posteriormente Motorola. Plataforma de agentes que implementa o modelo de comunicação FIPA. LEAP: ambiente JADE "lightweight" para dispositivos móveis.
+        </p>
+        <p>
+          Disponibiliza um conjunto de APIs para desenvolver de instalar (deploy) agentes, com as funcionalidades essenciais para arquiteturas de sistemas de agentes autonomos: classe comum de agentes, para o controle do ciclo de vida dos agentes no containers JADE, fila de mensagens para cada agente, APIs para formulacao de mensagens (FIPA ACL) e classes de compartamento (<em>Behavior</em>): lista de tarefas de cada agente com metodos para incluir/remover e compor tarefas.
+        </p>
+        <h4>
+          Baixo-nivel
+        </h4>
+        <ul>
+          <li>
+            Plataforma (cjto de JADE containers) - dominio comum dos agentes contidos no container, "catalogo" de agentes. Comunicacao interna das plataformas via RMI, e externa via FIPA MTP (msg transfer protucol).
+          </li>
+        </ul>
+      </article>
+
+
+      <article>
+        <h2>
+          JADE
+        </h2>
+        <h4>
+          Alto-nível
+        </h4>
+        <ul>
+          <li>
+            FIPA ACLs (visto no cap. 5), ontologias customizadas
+          </li>
+          <li>
+            Agent Management System (AMS). This agent is responsible for controlling access to the platform, authentication and registration of participating agents.
+          </li>
+          <li>
+            Directory Facilitator (DF). This agent provides a yellow page service to the agents in the platform.
+          </li>
+          <li>
+            Agent Communication Channel (ACC). This agent provides a white page service. It also supports inter-agent communication and inter-operability within and across different platforms.
+          </li>
+        </ul>
+        <h4>
+          Management Software
+        </h4>
+        <ul>
+          <li>
+            GUI para controlar o ciclo de vida agentes, e para monitorar a troca de mensagens (agente de monitoramento remoto, de sniffer e instrospector, por exemplo).
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <img class='centered' src="images/fipaagentplatform.png" height="520" />
+      </article>
+
+      <article>
+        <img class='centered' src="images/jade.png" height="520" />
+      </article>
+      <!-- Agent Toolkits finish -->
+
+
+
+
+
+      <!-- JACK start -->
+      <article>
+        <h2>
+          JACK
+        </h2>
+        <h3>
+          Origem
+        </h3>
+        <p>
+          Desenvolvido pela Agent Oriented Software Group em Melbourne, Australia. JACK tem sua primeira versão em 1998. Está disponível comercialmente, com licenças especiais para fins de pesquisas. Versão de demonstração está disponível gratuitamente.
+        </p>
+        <ul>
+          <li>
+            Agentes no JACK são agentes inteligentes que são baseados na arquitetura BDI
+          </li>
+          <li>
+            JACK Agent Language é um superset da linguagem Java, e introduz novas características semânticas e sintáticas, novas classes base, interfaces e métodos
+          </li>
+          <li>
+            JACK Compiler compila a JACK Agent language para Java puro
+          </li>
+          <li>
+            JACK Agent Kernel é o programa em real-time no qual os agentes JACK operam, e fornece a funcionalidade básica do agente que é definida dentro do JACK Agent Language
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>
+          JACK
+        </h2>
+        <h3>
+          Agents
+        </h3>
+        <ul>
+          <li>
+            A classe base Agent é o artefato central da JACK Agent language. Com ela os desenvolvedores definem os beliefs, planos, eventos externos e internos e as capacidades
+          </li>
+          <li>
+            A classe Agent deve ser extendida para implementar agentes específicos da aplicação
+          </li>
+          <li>
+            Açoes agendadas dos agentes, incluindo as ações concorrentes, usa o TaskManager
+          </li>
+          <li>
+            A BeliefSet é um banco de dados de beliefs que representa as beliefs através de modelo relacional baseado em tuplas
+          </li>
+          <li>
+            Planos são seqüências de ações que os agentes executam na gravação de um evento. Cada plano no JACK corresponde a um único evento, e vários planos podem ser declarados para lidar com o mesmo evento
+          </li>
+          <li>
+            Capacidades fornece meios para a estruturação de um conjunto de elementos de raciocínio em um conjunto coerente que pode ser conectado a agentes
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>
+          JACK
+        </h2>
+        <h3>
+          Multiagent Systems
+        </h3>
+        <h4>
+          Baixo-nivel
+        </h4>
+        <ul>
+          <li>
+            UDP over IP, possibilita comunicação peer-to-peer
+          </li>
+        </ul>
+        <h4>
+          Alto-nivel
+        </h4>
+        <ul>
+          <li>
+            A comunicação entre agentes é manipulado pelo Kernel.
+          </li>
+          <li>
+            JACK fornece suporte para a coordenação entre agentes baseados em Team Oriented Programming. Este mecanismo de coordenação vê um grupo de agentes como um todo e atribui metas para uma equipe de agentes, que coordena a sua actividade para alcançar o objetivo da equipe
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>
+          JACK
+        </h2>
+        <h3>
+          Agent-Building Software
+        </h3>
+        <p>
+          JACK fornece um ambiente de desenvolvimento gráfico. A ferramentas de design de alto nível permite que um sistema multi-agente seja projetado definindo os agentes e as relações entre eles em uma notação semelhante à UML.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h3>
+          Management Software
+        </h3>
+        <p>
+          Um aplicativo pode ser monitorado através de um Agent Tracing Controller. Esta ferramenta gráfica permite que um desenvolvedor possa escolher quais os agentes rastrear e fornece uma representação visual dos agentes percorrendo os seus planos.
+        </p>
+      </article>
+      <!-- JACK finish -->
+
+
+
+
+
+      <!-- LIVING MARKETS start -->
+      <article>
+        <h2>
+          LIVING MARKETS
+        </h2>
+        <h3>
+          Origem
+        </h3>
+        <p>
+          Desenvolvido pela Living Systems AG em Donaueschingen, Alemanhã. A empresa desenvolve soluções baseadas em agente desde 1996 e seu conjunto de ferramentas está sendo usado em uma variedade de configurações, incluindo processos complexos comerciais e logística.
+        </p>
+        <p>
+          O living markets toolkit é dividido em um servidor de agente base que lida com o questões independentes do domínio da aplicação relacionadas com o desenvolvimento baseado em agentes, e soluções específicas para mercados específicos são construídos em cima do servidor de agente.
+        </p>
+        <p>
+          O servidor de agente base é feito em Java e o método de comunicação padrão é RMI (remote method invocation). Suporta também padrões como XML, SSL, HTTP e CORBA.
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          LIVING MARKETS
+        </h2>
+        <h3>
+          Agents
+        </h3>
+        <p>
+          De uma forma abstrata, podemos dizer que agentes no living markets são entendidos como proativos, entidades direcionadas a objetivos, capazes de executar ações e perceber o ambiente.
+        </p>
+        <p>
+          São especializados em quatro tipos genéricos:
+        </p>
+        <ul>
+          <li>
+            <b>Application agents</b> Agentes específicos de domínio e representam a principal funcionalidade do núcleo do sistema
+          </li>
+          <li>
+            <b>Integration agents</b> Agentes dedicados à integração do sistema com os sistemas existentes fora do ambiente do <em>living markets</em>
+          </li>
+          <li>
+            <b>Interface agents</b> A interação com o sistema é tratada por pessoas através dos agentes de interface
+          </li>
+          <li>
+            <b>System Agents</b> Estes são os agentes que lidam com a gestão do próprio sistema no <em>living markets</em> ralizando tarefas como monitoramento de desempenho e balanceamento de carga
+          </li>
+        </ul>
+
+      </article>
+
+      <article>
+        <h2>
+          LIVING MARKETS
+        </h2>
+        <h3>
+          Multiagent Systems
+        </h3>
+        <h4>
+          Baixo-nivel
+        </h4>
+        <p>
+          Os servidores LARS (living agents runtime system) fornecem um canal de comunicação dedicado que permite a comunicação entre os agentes dentro de um único servidor, bem como um roteador de mensagens especial que é capaz de enviar mensagens para outros servidores LARS.
+        </p>
+        <h4>
+          Alto-nivel
+        </h4>
+        <p>
+          O <em>living markets</em> divide os serviços necessários em quatro níveis com base na funcionalidade:
+        </p>
+        <ul>
+          <li>
+            Agentes devem ser capazes de procurar parceiros de negócios, por produtos ou serviços
+          </li>
+          <li>
+            Prestadores de serviços e solicitações de serviços devem se combinar
+          </li>
+          <li>
+            A toolkit suporta uma gama de mecanismos de preços dinâmicos que permitem os agentes decidir sobre o preço de provisão do serviço
+          </li>
+          <li>
+            E por último, trata da compensação e liquidação de negócios apoiando liquidações físicas e financeiras
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>
+          LIVING MARKETS
+        </h2>
+        <h3>
+          Agent-Building Software
+        </h3>
+        <p>
+          O desenvolvimento de agente é feito por por um ambiente de desenvolvimento gráfico integrado, o living markets Development Suite. Este software permite a programadores de aplicações criar visualmente o <em>agent scenarios</em>, que representa os principais agentes no sistema e o fluxo de comunicação entre eles.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h3>
+          Management Software
+        </h3>
+        <p>
+          A gestão de um sistema de <em>living markets</em> é dividida entre a gestão do dia-a-dia dos sistemas inteiros e uma gestão mais detalhada dos agentes e servidores. Uma interface web-based permite a administração do dia-a-dia da aplicação e um <em>control center</em> que permite o acesso detalhado de cada servidor LARS e os agentes que residem no servidor.
+        </p>
+      </article>
+      <!-- LIVING MARKETS finish -->
+
+
+
+
+
+      <!-- OTHER TOOLKITS start -->
+      <article>
+        <h2>
+          OTHER TOOLKITS
+        </h2>
+        <ul>
+          <li>
+            <b>agentTool</b> desenvolvida em Kansas State University com suporte a metodologia Mutliagent Systems Engineering. Esta metodologia especifica sete etapas a partir da identificação dos objetivos, e em seguida aplica os casos de uso e deriva papéis com base neles. Depois as classes de agentes são criadas, as conversas são construídas e as os agente são montados. Por fim, a implantação do sistema em geral ocorre.
+          </li>
+          <li>
+            <b>Agent Factory</b> foi desenvolvida no laboratorio Practice and Research in Intelligent Systems and Media (PRISM) da Universidade de Dublin. Fornece amplo suporte para o desenvolvimento através de um ambiente gráfico e uma plataforma distribuida que escala de estações de trabalho para PDAs de capacidade limitada. Os agentes são do tipo BDI.
+          </li>
+          <li>
+            <b>BOND</b> é um sistema multi-agent FIPA-compliant desenvolvido pela University of Central Florida. O conceito principal por trás do sistema de infra-estrutura de agente BOND é a visão dos agentes como objetos móveis ativos com algum nível de inteligência. Outra decisão importante no design é permitir a reconfiguração dinâmica de agentes para responder às novas exigências colocadas dinamicamente nas aplicações.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>
+          OTHER TOOLKITS
+        </h2>
+        <ul>
+          <li>
+            <b>CoABS</b> (Co-operating Agent Based Systems) é um projeto fundado pelo DARPA (Defense Advanced Research Projects Agency) com o objetivo de contruir uma infra-estrutura que permite a integração de sistemas baseados em agentes desenvolvido com outros toolkits.
+          </li>
+          <li>
+            <b>DECAF</b> (Distributed, Environment-Centred Agent Framework) é uma toolkit desenvolvida na University of Delaware. DECAF foca nas arquiteturas de agentes individuais, em vez de uma infra-estrutura distribuída, embora os serviços básicos de Agente Name Server sejam fornecidos.
+          </li>
+          <li>
+            <b>Open Agent Architecture</b> (OOA) é desenvolvido na Artiﬁcial Intelligence Center of SRI International. A comunicação e coordenação do agente é feita por agentes <em>Facilitator</em> especializados que podem realizar a distribuição de tarefas para outros agentes permitindo a execução de metas complexas, bem como atuar como repositórios de dados globais para os agentes.
+          </li>
+          <li>
+            <b>Sensible Agents</b> é desenvolvida pelo Laboratory of Intelligent Processes and Systems at the University of Texas em Austin. Fornece um ambiente distribuído para o funcionamento do agente e da comunicação. O foco principal é sobre desenvolver agentes que são capazes de ajudar nas decisões em ambiente com recursos limitados.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>
+          OTHER TOOLKITS
+        </h2>
+        <ul>
+          <li>
+            <b>SoFAR</b> (Southampton Framework for Agent Research) foi desenvolvido pela The Intelligence, Agents and Mutlimedia Group na Southampton University. O foco da SoFAR está em fornecer uma infra-estrutura confiável que ajuda o agente na comunicação e descoberta no domínio da gestão da informação distribuída.
+          </li>
+        </ul>
+      </article>
+      <!-- OTHER TOOLKITS start -->
+
+
+
+
+
+      <!-- DISCUSSION start -->
+      <article>
+        <h3>
+          Review
+        </h3>
+        </center><img src="images/review_part_1.jpg" height="520" />
+      </article>
+
+      <article>
+        <h3>
+          Review
+        </h3>
+        <img src="images/review_part_2.jpg" height="520" />
+      </article>
+      <!-- DISCUSSION finish -->
+
+
+
+
+
+
+      <article>
+        <h2>
+          LINKS
+        </h2>
+        <h3>
+        </h3>
+        <p>
+          Comparison of agent-based modeling software - Wikipedia
+          <br>
+          <a href="http://en.wikipedia.org/wiki/Comparison_of_agent-based_modeling_software">http://en.wikipedia.org/wiki/Comparison_of_agent-based_modeling_software</a>
+        </p>
+        <p>
+          JACK
+          <br>
+          <a href="http://www.agent-software.com.au/products/jack/">http://www.agent-software.com.au/products/jack/</a>
+        </p>
+        <p>
+          ---
+          <br>
+          <a href="---">---</a>
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          Thank you!
+        </h3>
+        <p>
+          Camila Coelho Sanches
+          <br>
+          Reinaldo Nolasco Sanches
+        </p>
+      </article>
+
+    </section>
+
+  </body>
+</html>
