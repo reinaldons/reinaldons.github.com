@@ -26,7 +26,9 @@
 
       <article>
         <h1>
-          ---
+          Agent-based Software Development - Chapter 4
+          <br>
+          <small><em>M. Luck, R. Ashri, M. D'Inverno</em></small>
         </h1>
         <p>
           Camila Coelho Sanches
@@ -153,7 +155,7 @@
             Discovery: mecanismos de troca de mensagens (<strong>mailbox</strong>, <strong>message handlers</strong>) e bases de dados compartilhados entre agentes: <strong>resource</strong>: info. das interfaces externas e de cada agente, e <strong>acquaintance</strong>: info. sobre os demais agentes.
           </li>
           <li>
-            Motor de coordenação e <strong>scheduler</strong>: selecionar objetivos e protocolos disponíveis para a interação entre agentes, planos de execução e temporização conforme objetivo. Além de definir os "peers" (papel de agentes que comunicam-se entre si), permite definir uma estrutura organizacional hierárquica ("superior/subordinate") de papéis de agentes.
+            Motor de coordenação e <strong>scheduler</strong>: selecionar objetivos e protocolos disponíveis para a interação entre agentes, planos de execução e temporização conforme objetivo. Além de definir os "peers" (papel de agentes que comunicam-se entre si), permite definir uma estrutura organizacional hierárquica ("superior/subordinate").
           </li>
         </ul>
         <!--[Nota: comps de alto-nivel, "engessa" para permitir a alteracao pelas ferramentas graficas, mas o codigo é aberto e pode ser adaptado]-->
@@ -176,11 +178,12 @@
           Comunicação: FIPA ACL (Agent Communication Language)  e componente de ontologias para formulação das mensagens.
         </p>
         <p>
-          Ferramentas: editor de ontologias (criar ou importar) e de agentes (parâmetros de planos, tarefas, recursos, papéis e protocolos, e configuração de agentes-utilitarios).
+          Ferramentas: editor de ontologias (criar ou importar) e de agentes (parâmetros de planos, tarefas, recursos, papéis e protocolos, e configuração de agentes-utilitários).
         </p>
         <p>
-          Monitoramento: serviçoes para verificar a troca de mensagens, progresso das tarefas, estado interno dos agentes e gerar estatísticas.
+          Monitoramento: serviços para verificar a troca de mensagens, progresso das tarefas, estado interno dos agentes e gerar estatísticas.
         </p>
+
         <!--[Nota:] [impl. do mailbox/msg handler] [geracao de codigo]-->
       </article>
 
@@ -193,32 +196,34 @@
           Origem: 1995 (Carnegie Mellon), multiplataforma. RETSINA: <em>reusable environmento for task-structured intelligent network agents</em>.
         </p>
         <p>
-          Características dos agentes para operar no retsina:
+          Características dos agentes para operar no RETSINA:
         </p>
         <ul>
           <li>
-            Sistemas multiagentes, que interagem via linguagem comum e ontologias. "Black box" com convenções de comunicação.
+            Sistemas multiagentes, que interagem via linguagem comum e ontologias.
+            <!-- "Black box" com convenções de comunicação. -->
           </li>
           <li>
             Peer-to-peer: ao invés de uma abordagem centralizada de estrutura social, modelos hierárquicos devem imergir a partir de interação entre os pares.
           </li>
         </ul>
         <p>
-          Implementação técnica:
-        </p>
-        <ul>
-          <li>Agentes derivam de <em>BasicAgent</em>: mecanismos de troca de mensagens, descoberta de clientes, módulo de ciclo de vida (inicio/finalização de agentes) e <em>timing</em>.</li>
-          <li>Especializações pré-definidas de agentes (outras podem ser implementadas sob demanda):
-            <ul>
-              <li>Interface agent: recebe entrada do usuário e apresenta resultados</li>
-              <li>Task agent: executa o objetivo, formulando planos coordenados com outros agentes</li>
-              <li>Information agent: interage com bases de dados ou páginas web para recuperar informações</li>
-              <li>Middle agent: infraestrutura, descobrem os serviços disponíveis entre agentes. </li>
-              <li><em>Matchmakers</em>: mapeamento entre agentes e serviços (por exemplo, "brokers")</li>
-            </ul>
-          </li>
+          Implementação técnica: agentes derivam de <em>BasicAgent</em>: mecanismos de troca de mensagens, descoberta de clientes, módulo de ciclo de vida (inicio/finalização de agentes) e <em>timing</em>.<p> Especializações pré-definidas:</p>
+            <div style="font-size: smaller">
+              <ul><li> Interface agent: recebe entrada do usuário e apresenta resultados
+              <li> Task agent: executa o objetivo, formulando planos coordenados com outros agentes
+              <li>Information agent: interage com bases de dados ou páginas web para recuperar informações
+              <li>Middle agent: infraestrutura, descobrem os serviços disponíveis entre agentes.
+              <li><em>Matchmakers</em>: mapeamento entre agentes e serviços (por exemplo, "brokers")
+              </ul>
+            </div>
+
         </ul>
-        <p>Mecanismos de multi-agentes: </p>
+        </article>
+
+        <article>
+        <h3>RETSINA</h3>
+        <p>Mecanismos multi-agentes: </p>
         <ul>
           <li>Baixo-nivel: protocolo multicast (Simple Service Discovery Protocol) e mecanismos de segurança de autenticação e troca de chaves na comunicação (protocolo SSL).</li>
           <li>Alto-nível: KQML ACL. Componente ANS para registro e lookup de agentes, e dinâmico (multicasts).</li>
@@ -236,7 +241,7 @@
           IMPACT
         </h3>
           <p>
-            Proveniente da academia, utilizado em aplicacoes militares (logística do exército, simular combates, etc.)
+            Proveniente da academia, utilizado em aplicações militares <!-- (logística do exército, simular combates, etc.) -->
           </p>
           <p>
             Garantia de operação "correta" a partir de "checks" de consistência e restrições estritamente parametrizadas. Framework composto por 2 partes:
@@ -249,83 +254,71 @@
               Wrapper: a função de aplicação ("inteligência") dos agentes. Componentes básicos de controle: permissões, restrições, base de ação (descrição e precondição para a execução de ações) que combinados atendem a arquitetura IMPACT. Linguagem própria: "do", "permitted", "forbidden", etc. <i>Metaknowledge</i>: conhecimento de outros agentes.
             </li>
           </ul>
+           </article>
+
+            <article>
+                    <h3>
+          IMPACT
+        </h3>
+        <p>Mecanismos multi-agentes: </p>
           <ul>
             <li>
-              Baixo-nivel: RMI (Java) - "agent roost" e modulos de conexao a modulos externos como servidores Oracle:
+              Baixo-nivel: RMI (Java) - "agent roost" (plataforma dedicada de conectividade entre agentes via RMI) e módulos de conexão a serviços externos como servidores Oracle.
             </li>
             <li>
-              Alto-nível: Agentes devem ser registrados nos servidores impact, linguagem propria de descricao de servicos semelhante a HTML. [MEssage-box e coordenacao ficam a cargo do desenvolvedor.]
+              Alto-nível: Agentes devem ser registrados nos servidores IMPACT via linguagem própria de descrição de serviços. <!-- [MEssage-box e coordenacao ficam a cargo do desenvolvedor.] -->
             </li>
             <li>
-              Ferramentas: IDE (ImpactDE) e visualização gráfica dos "roosts" para monitorar o estado interno dos agentes
+              Ferramentas: IDE (ImpactDE) e visualização gráfica dos "roosts" para monitorar o estado interno dos agentes.
             </li>
           </ul>
       </article>
 
 
       <article>
-        <h2>
-          JADE
-        </h2>
         <h3>
-          Origem
-        </h3>
-        <p>
-          Italy Telecom, posteriormente Motorola. Plataforma de agentes que implementa o modelo de comunicação FIPA. LEAP: ambiente JADE "lightweight" para dispositivos móveis.
-        </p>
-        <p>
-          Disponibiliza um conjunto de APIs para desenvolver de instalar (deploy) agentes, com as funcionalidades essenciais para arquiteturas de sistemas de agentes autonomos: classe comum de agentes, para o controle do ciclo de vida dos agentes no containers JADE, fila de mensagens para cada agente, APIs para formulacao de mensagens (FIPA ACL) e classes de compartamento (<em>Behavior</em>): lista de tarefas de cada agente com metodos para incluir/remover e compor tarefas.
-        </p>
-        <h4>
-          Baixo-nivel
-        </h4>
-        <ul>
-          <li>
-            Plataforma (cjto de JADE containers) - dominio comum dos agentes contidos no container, "catalogo" de agentes. Comunicacao interna das plataformas via RMI, e externa via FIPA MTP (msg transfer protucol).
-          </li>
-        </ul>
-      </article>
-
-
-      <article>
-        <h2>
           JADE
-        </h2>
-        <h4>
-          Alto-nível
-        </h4>
+        </h3>
+
+        <p>
+          Origem: Italy Telecom, posteriormente Motorola. Modelo de comunicação FIPA.
+        </p>
+        <p>
+          Disponibiliza um conjunto de APIs para desenvolver e instalar (deploy) agentes:
+        </p>
+        <div style="font-size: smaller">
+          <ul><li>Classe comum de agentes, com mecanismos de controle do ciclo de vida no <i>container</i> JADE (agentes de mesmo domínio, ver figura).
+          <li>Fila de mensagens para cada agente,
+          <li>APIs para formulacao de mensagens (FIPA ACL)
+          <li>Classes de comportamento (<em>behaviors</em>): lista de tarefas de cada agente com metodos para incluir/remover e compor tarefas.
+        </ul>
+        <img src="images/jade.png" height="200" />
+        <div class="source"><p class="orange" style="font-size: 14pt">LEAP: ambiente JADE "lightweight" para dispositivos móveis.</p></div>
+        </article>
+
+        <article>
+        <h3>
+          JADE
+        </h3>
+        <p>Mecanismos multi-agentes: </p>
         <ul>
           <li>
-            FIPA ACLs (visto no cap. 5), ontologias customizadas
+             Baixo-nivel: plataforma de JADE <i>containers</i>, "catálogo" de agentes <small><i>(Agent Management System - AMS, Directory Facilitator - DF, Agent Communication Channel - ACC)</i></small>. Comunicação interna das plataformas via RMI, e externa via FIPA MTP <small><i>(message transfer protocol)</i></small>.</li>
           </li>
           <li>
-            Agent Management System (AMS). This agent is responsible for controlling access to the platform, authentication and registration of participating agents.
+            Alto-nível: FIPA ACLs (visto no cap. 5), ontologias customizadas.
           </li>
           <li>
-            Directory Facilitator (DF). This agent provides a yellow page service to the agents in the platform.
+            Ferramentas: UI para controlar o ciclo de vida agentes e para monitorar a troca de mensagens (agente de monitoramento remoto - <i>sniffer e instrospector</i>, por exemplo).
           </li>
-          <li>
-            Agent Communication Channel (ACC). This agent provides a white page service. It also supports inter-agent communication and inter-operability within and across different platforms.
-          </li>
+          <ul>
+            <li class="orange">
+              <a href="http://www.youtube.com/watch?v=r4KT8OMkk14">youtu.be/r4KT8OMkk14</a>
+            </li>
+          </ul>
         </ul>
-        <h4>
-          Management Software
-        </h4>
-        <ul>
-          <li>
-            GUI para controlar o ciclo de vida agentes, e para monitorar a troca de mensagens (agente de monitoramento remoto, de sniffer e instrospector, por exemplo).
-          </li>
-        </ul>
+        <!-- [Nota] usuario envia msg para papel1 solicitando 11 copias para Papel, quye redireciona para impressora com a mensagem sem papel ((0 a 1:00 sniffer agent)) e 4:30-5:30  ex de codigo (qtde de paginas a serem impressas via ACLMessage.Request)  -->
       </article>
-
-      <article>
-        <img class='centered' src="images/fipaagentplatform.png" height="520" />
-      </article>
-
-      <article>
-        <img class='centered' src="images/jade.png" height="520" />
-      </article>
-      <!-- Agent Toolkits finish -->
 
 
 
@@ -636,16 +629,6 @@
           Comparison of agent-based modeling software - Wikipedia
           <br>
           <a href="http://en.wikipedia.org/wiki/Comparison_of_agent-based_modeling_software">http://en.wikipedia.org/wiki/Comparison_of_agent-based_modeling_software</a>
-        </p>
-        <p>
-          JACK
-          <br>
-          <a href="http://www.agent-software.com.au/products/jack/">http://www.agent-software.com.au/products/jack/</a>
-        </p>
-        <p>
-          ---
-          <br>
-          <a href="---">---</a>
         </p>
       </article>
 
