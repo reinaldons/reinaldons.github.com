@@ -329,7 +329,7 @@ ul {
 /*
     This step has some animated text ...
 */
-#ing { width: 500px }
+#ing { width: 600px }
 
 /*
     ... so we define display to `inline-block` to enable transforms and
