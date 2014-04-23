@@ -318,12 +318,12 @@ ul {
     'Tiny ideas' just need some tiny styling.
 */
 #tiny {
-    top: -300px;
     width: 1024px;
 }
 
-#tiny img {
-    position: absolute;
+#tiny2 {
+    width: 1024px;
+    text-align: center;
 }
 
 /*
