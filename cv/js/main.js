@@ -1,4 +1,12 @@
 
+function select_section(_select) {
+    var section_name_array = document.getElementsByName("section_name")
+
+    for (var i=0; i<section_name_array.length; i++) {
+        section_name_array[i].innerHTML = _select.value
+    }
+}
+
 function set_date() {
     var application_response = document.getElementById("application_response")
     var start_date = new Date()
