@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Capitalize Words</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+
+        <script>
+        function capitalize() {
+            t_original = document.getElementById("original");
+            t_new = document.getElementById("new");
+
+            t_new.value = t_original.value.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+        }
+        </script>
+    </head>
+    <body style="padding: 20px;">
+        <h1>Capitalize Words</h1>
+        <div style="padding: 10px 10px; text-align: center; border: 1px solid #999; height: 420px; width: 670px">
+            <textarea id="original" rows="10" cols="72"></textarea><br>
+            <span style="cursor: pointer; font-size: 14pt;" onclick="capitalize()">&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr; click here &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;</span><br>
+            <textarea id="new" rows="10" cols="72"></textarea>
+        </div>
+    </body>
+</html>
+
