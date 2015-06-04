@@ -37,14 +37,24 @@
         <p id="application_response" class="block">Spoke to you on TS. Your trial begin on {start_trial} until {end_trial}. Good luck and and enjoy your time here :D</p>
 
         <h1>Interview</h1>
-        <p>- <a href="http://forums.thechaosvanguard.co.uk/showthread.php?1563-Game-Specific-Guidelines-to-doing-an-Application" target="new">Game Specific Guidelines to doing an Application</a></p>
-        <p>- Basic recruitment talk (Activity on TS and forums, nice behavior etc.) <a href="http://thechaosvanguard.co.uk/about-us/community-rules/" target="new">Community Rules</a></p>
-        <p>- BattheTag on TS</p>
-        <p>- /join CV Hots or /join Chaos Vanguard</p>
+        <p>
+            <ul>
+                <li><a href="http://forums.thechaosvanguard.co.uk/showthread.php?1563-Game-Specific-Guidelines-to-doing-an-Application" target="new">Game Specific Guidelines to doing an Application</a></li>
+                <li>Basic recruitment talk (Activity on TS and forums, nice behavior etc.) <a href="http://thechaosvanguard.co.uk/about-us/community-rules/" target="new">Community Rules</a></li>
+                <li>BattheTag on TS</li>
+                <li>/join CV Hots or /join Chaos Vanguard</li>
+                <li>TED post: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?133-Heroes-of-the-Storm-TED">Heroes of the Storm TED section</a></li>
+            </ul>
+        </p>
 
-        <p>- TED post: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?133-Heroes-of-the-Storm-TED">Heroes of the Storm TED section</a></p>
+        <p>Forum Username: <input type="text" id="fname" onchange="change_tag(this, 'forum_name')"> Battle.net Tag: <input type="text" id="bnet" onchange="change_tag(this, 'bnet_tag')">
+        Region: <select onchange="change_region(this)">
+            <option>NA</option>
+            <option>EU</option>
+        </select></p>
+        <p id="ted_title" class="block"><span name="forum_name">###</span> / <span name="bnet_tag">###</span> - {ted_start_trial} - {ted_end_trial} - <span name="region">NA</span></p>
         <p class="block">
-            Please leave feedback for [Name here]<br>
+            Please leave feedback for <span name="forum_name">###</span> (<span name="bnet_tag">###</span>)<br>
             <br>
             Please vote either +1 or -1, note you must provide a reason for your vote.<br>
             <br>
@@ -53,9 +63,9 @@
             Do not share or discuss any information within this TED.<br>
             Please remember that valid feedback does not include feedback based on the skill of the player.<br>
             <br>
-            TS ID: [ID here]<br>
+            TS ID: UID<br>
             <br>
-            Link to application: [link here]<br>
+            Link to application: APP_LINK<br>
         </p>
 
         <script src="js/main.js"></script>
