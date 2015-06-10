@@ -11,22 +11,22 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <h1>Application</h1>
         <select onchange="select_section(this)">
-            <option>General</option>
-            <option>League of Legends</option>
-            <option>Archeage</option>
-            <option>H1Z1</option>
-            <option>Smite</option>
-            <option>Counter Strike</option>
-            <option>Dota</option>
-            <option>Path of Exile</option>
-            <option>Heroes of the Storm</option>
-            <option>TERA</option>
-            <option>Elder Scrolls Online</option>
-            <option>Warframe</option>
-            <option>Grand Theft Auto</option>
+            <option id="general">General</option>
+            <option id="lol">League of Legends</option>
+            <option id="">Archeage</option>
+            <option id="">H1Z1</option>
+            <option id="smite">Smite</option>
+            <option id="">Counter Strike</option>
+            <option id="dota">Dota</option>
+            <option id="">Path of Exile</option>
+            <option id="hots">Heroes of the Storm</option>
+            <option id="">TERA</option>
+            <option id="">Elder Scrolls Online</option>
+            <option id="">Warframe</option>
+            <option id="">Grand Theft Auto</option>
         </select>
+        <h1>Application</h1>
         <p id="application_accept" class="block">
             Hello NAME! I have accepted your application.<br>
             <br>
@@ -38,12 +38,30 @@
 
         <h1>Interview</h1>
         <p>
+            <h2>General</h2>
             <ul>
-                <li><a href="http://forums.thechaosvanguard.co.uk/showthread.php?1563-Game-Specific-Guidelines-to-doing-an-Application" target="new">Game Specific Guidelines to doing an Application</a></li>
-                <li>Basic recruitment talk (Activity on TS and forums, nice behavior etc.) <a href="http://thechaosvanguard.co.uk/about-us/community-rules/" target="new">Community Rules</a></li>
-                <li>BattheTag on TS</li>
-                <li>/join CV Hots or /join Chaos Vanguard</li>
-                <li>TED post: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?133-Heroes-of-the-Storm-TED">Heroes of the Storm TED section</a></li>
+                <li><a href="http://forums.thechaosvanguard.co.uk/showthread.php?1563-Game-Specific-Guidelines-to-doing-an-Application" target="blank">Game Specific Guidelines to doing an Application</a></li>
+                <li>Basic recruitment talk (Activity on TS and forums, nice behavior, etc.) <a href="http://thechaosvanguard.co.uk/about-us/community-rules/" target="blank">Community Rules</a></li>
+            </ul>
+            <h2>Game Specific <i>(select a game on top of page)</i></h2>
+            <ul id="gs_lol" class="specific_section">
+                <li>Remember about Summoner's Code</li>
+                <li>Chat: [EU] CVLOLCHATLFG18 or [NA] TCVLOLCHAT&amp;LFG</li>
+                <li><a href="http://forums.thechaosvanguard.co.uk/showthread.php?5120-Daily-Inhouse-Schedule" target="blank">Daily Inhouse Schedule</a></li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?14" target="blank">League of Legends TED</a></li>
+            </ul>
+            <ul id="gs_smite" class="specific_section">
+                <li>Invite to Smite Clan</li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?21" target="blank">Smite TED</a></li>
+            </ul>
+            <ul id="gs_dota" class="specific_section">
+                <li>Invite to Steam Group and the Ingame Guild</li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?12" target="blank">Smite TED</a></li>
+            </ul>
+            <ul id="gs_hots" class="specific_section">
+                <li>BattleTag as nickname on TS</li>
+                <li>Chat: [EU] /join CV HotS or [NA] /join Chaos Vanguard</li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?133" target="blank">Heroes of the Storm TED</a></li>
             </ul>
         </p>
 

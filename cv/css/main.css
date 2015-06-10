@@ -3,9 +3,9 @@
 html {
     background-color: #333333;
     color: #ccc;
-    font-size: 1em;
-    line-height: 1.4;
-    margin: 20px;
+    font-size: 0.9em;
+    line-height: 1.2;
+    margin: 10px;
 }
 
 ::-moz-selection {
@@ -60,12 +60,16 @@ textarea {
 }
 
 .block {
-    border: 1px solid #666;
+    border: 1px solid #444;
     padding: 0.5em;
 }
 
 input, select {
     color: #333;
+}
+
+h1 {
+    border-bottom: 1px solid #666;
 }
 
 

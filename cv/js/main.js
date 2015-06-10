@@ -5,6 +5,8 @@ function select_section(_select) {
     for (var i=0; i<section_name_array.length; i++) {
         section_name_array[i].innerHTML = _select.value
     }
+
+    show_specific_sections(_select[_select.selectedIndex].id)
 }
 
 function set_date() {
@@ -38,4 +40,19 @@ function change_region(_select) {
     for (var i=0; i<region_array.length; i++) {
         region_array[i].innerHTML = _select.value
     }
+}
+
+function hide_specific_sections() {
+    var specific_section_array = document.getElementsByClassName("specific_section")
+
+    for (var i=0; i<specific_section_array.length; i++) {
+        specific_section_array[i].style.display = 'none';
+    }
+}
+
+hide_specific_sections()
+
+function show_specific_sections(id) {
+    hide_specific_sections()
+    document.getElementById('gs_' + id).style.display = '';
 }
