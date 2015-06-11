@@ -30,6 +30,8 @@
   <style>
     .syntaxhighlighter {
       font-size: 0.5em !important;
+      margin: 5px 0 5px 0 !important;
+      padding: 5px 0 !important;
     }
   </style>
 
@@ -81,16 +83,21 @@
           A melhor maneira de automatizar testes em Branding é usando Python + Selenium
         </p>
         <pre class="brush: python">
-          ...
-          driver.get("http://titansgroup.com.br")
-          ...
-          elem = driver.find_element_by_name("q")
-          ...
-          elem.send_keys("titans")
-          elem.send_keys(Keys.RETURN)
-          ...
-          assert "Titans" in driver.title
-          ...
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Firefox()
+driver.get("http://www.python.org")
+
+assert "Python" in driver.title
+
+elem = driver.find_element_by_name("q")
+elem.send_keys("pycon")
+elem.send_keys(Keys.RETURN)
+
+assert "No results found." not in driver.page_source
+
+driver.close()
         </pre>
       </article>
 
@@ -119,26 +126,23 @@
         <img src="images/Executable specifications - BDD_in_Action - page 22.png" />
         <p>Exemplos</p>
         <pre class="brush: gherkin">
-Funcionalidade: mostrando o behave
-
-  Cenário: rodar um teste simples
-     Dado que temos o behave instalado
-   Quando implementamos um teste
-    Então o behave vai testar isso para nós
+Cenário: Transferir dinheiro para a poupança
+   Dado que minha Conta Corrente tem um balanço de 1000,00
+      E minha Poupança tem o balanço de 2000,00
+ Quando eu transfiro 500,00 da minha Conta Corrente para a Poupança
+  Então eu devo ter 500,00 na minha Conta Corrente
+      E eu devo ter 2500,00 na minha Poupança
         </pre>
         <p>Especificações Executáveis</p>
         <pre class="brush: python">
-@given('que temos o behave instalado')
-def step_impl(context):
+@given('que minha Conta Corrente tem um balanço de {value}')
+def step_impl(context, value):
     pass
 
-@when('implementamos um teste')
-def step_impl(context):
-    assert True is not False
-
-@then('o behave vai testar isso para nós')
-def step_impl(context):
-    assert context.failed is False
+@given('minha Poupança tem o balanço de {value}')
+def step_impl(context, value):
+    pass
+...
         </pre>
       </article>
 
@@ -183,21 +187,12 @@ def step_impl(context):
         <h3>
           Injeção de Funcionalidade
         </h3>
+        <img src="images/Feature Injection three-step process - BDD_in_Action - page 64.png" />
+
         <ul>
-          <li>
-            Use this template to create your presentation
-          </li>
-          <li>
-            Use the provided color palette, box and arrow graphics, and
-            chart styles
-          </li>
-          <li>
-            Instructions are provided to assist you in using this
-            presentation template effectively
-          </li>
-          <li>
-            At all times strive to maintain Google's corporate look and feel
-          </li>
+          <li>Se preocupe apenas com funcionalidades de valor</li>
+          <li>O minimo de funcionalidades para gerar o resultado esperado</li>
+          <li>Exemplos são intuitivos e fáceis de entender</li>
         </ul>
       </article>
 
@@ -205,238 +200,11 @@ def step_impl(context):
         <h3>
           Linguagem Ubíqua
         </h3>
-        <ul class="build">
-          <li>
-            This is an example of a list
-          </li>
-          <li>
-            The list items fade in
-          </li>
-          <li>
-            Last one!
-          </li>
-        </ul>
-
-        <div class="build">
-          <p>Any element with child nodes can build.</p>
-          <p>It doesn't have to be a list.</p>
-        </div>
-      </article>
-
-      <article class='smaller'>
-        <h3>
-          Slide with bullet points (small font)
-        </h3>
         <ul>
-          <li>
-            Use this template to create your presentation
-          <li>
-            Use the provided color palette, box and arrow graphics, and
-            chart styles
-          <li>
-            Instructions are provided to assist you in using this
-            presentation template effectively
-          <li>
-            At all times strive to maintain Google's corporate look and feel
+          <li>Uma linguagem estruturada em torno do modelo do dominio</li>
+          <li>O vocabulario desta linguagem inclue o nome das operações importantes</li>
+          <li>A linguagem inclui termos para discutir as regras que foram explicitas no modelo</li>
         </ul>
-      </article>
-
-      <article>
-        <h3>
-          Slide with a table
-        </h3>
-        
-        <table>
-          <tr>
-            <th>
-              Name
-            <th>
-              Occupation
-          <tr>
-            <td>
-              Luke Mahé
-            <td>
-              V.P. of Keepin’ It Real
-          <tr>
-            <td>
-              Marcin Wichary
-            <td>
-              The Michael Bay of Doodles
-        </table>
-      </article>
-      
-      <article class='smaller'>
-        <h3>
-          Slide with a table (smaller text)
-        </h3>
-        
-        <table>
-          <tr>
-            <th>
-              Name
-            <th>
-              Occupation
-          <tr>
-            <td>
-              Luke Mahé
-            <td>
-              V.P. of Keepin’ It Real
-          <tr>
-            <td>
-              Marcin Wichary
-            <td>
-              The Michael Bay of Doodles
-        </table>
-      </article>
-      
-      <article>
-        <h3>
-          Styles
-        </h3>
-        <ul>
-          <li>
-            <span class='red'>class="red"</span>
-          <li>
-            <span class='blue'>class="blue"</span>
-          <li>
-            <span class='green'>class="green"</span>
-          <li>
-            <span class='yellow'>class="yellow"</span>
-          <li>
-            <span class='black'>class="black"</span>
-          <li>
-            <span class='white'>class="white"</span>
-          <li>
-            <b>bold</b> and <i>italic</i>
-        </ul>
-      </article>
-      
-      <article>
-        <h2>
-          Segue slide
-        </h2>
-      </article>
-
-      <article>
-        <h3>
-          Slide with an image
-        </h3>
-        <p>
-          <img style='height: 500px' src='images/example-graph.png'>
-        </p>
-        <div class='source'>
-          Source: Sergey Brin
-        </div>
-      </article>
-
-      <article>
-        <h3>
-          Slide with an image (centered)
-        </h3>
-        <p>
-          <img class='centered' style='height: 500px' src='images/example-graph.png'>
-        </p>
-        <div class='source'>
-          Source: Larry Page
-        </div>
-      </article>
-
-      <article class='fill'>
-        <h3>
-          Image filling the slide (with optional header)
-        </h3>
-        <p>
-          <img src='images/example-cat.jpg'>
-        </p>
-        <div class='source white'>
-          Source: Eric Schmidt
-        </div>
-      </article>
-
-      <article>
-        <h3>
-          This slide has some code
-        </h3>
-        <section>
-        <pre>
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }
-  }
-&lt;/script&gt;
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-  u { color: 'umber' }
-&lt;/style&gt;
-</pre>
-        </section>
-      </article>
-      
-      <article class='smaller'>
-        <h3>
-          This slide has some code (small font)
-        </h3>
-        <section>
-        <pre>
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }
-  }
-&lt;/script&gt;
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-  u { color: 'umber' }
-&lt;/style&gt;
-</pre>
-        </section>
-      </article>
-      
-      <article>
-        <q>
-          The best way to predict the future is to invent it.
-        </q>
-        <div class='author'>
-          Alan Kay
-        </div>
-      </article>
-      
-      <article class='smaller'>
-        <q>
-          A distributed system is one in which the failure of a computer 
-          you didn’t even know existed can render your own computer unusable.
-        </q>
-        <div class='author'>
-          Leslie Lamport
-        </div>
-      </article>
-      
-      <article class='nobackground'>
-        <h3>
-          A slide with an embed + title
-        </h3>
-        
-        <iframe src='http://www.google.com/doodle4google/history.html'></iframe>
-      </article>
-
-      <article class='nobackground'>
-        <iframe src='http://www.google.com/doodle4google/history.html'></iframe>
-      </article>
-
-      <article class='fill'>
-        <h3>
-          Full-slide embed with (optional) slide title on top
-        </h3>
-        <iframe src='http://www.google.com/doodle4google/history.html'></iframe>
       </article>
 
       <article>
@@ -450,6 +218,13 @@ def step_impl(context):
             <a href='http://www.manning.com/smart/'>BDD in Action</a><br>
             <em>Behavior-Driven Development for the whole software lifecycle</em><br>
             <b>John Ferguson Smart</b>
+          </div>
+          <div style="clear: both"></div>
+          <div style="float: left; margin-right: 10px"><img src="images/Domain-Driven Design - cover.png" /></div>
+          <div>
+            <a href='http://www.manning.com/smart/'>Domain-Driven Design</a><br>
+            <em>Tackling Complexity in the Heart of Software</em><br>
+            <b>Eric Evans</b>
           </div>
         </div>
       </article>
