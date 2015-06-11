@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+    <!-- SyntaxHighlighter -->
+    <script src="syntaxhighlighter/shCore.js"></script>
+    <script src="syntaxhighlighter/shBrushPlain.js"></script>
+    <script src="syntaxhighlighter/shBrushPython.js"></script>
+    <script src="syntaxhighlighter/shBrushGherkin.js"></script>
+    <link href="syntaxhighlighter/shCoreRDark.css" rel="stylesheet" type="text/css" />
+    <link href="syntaxhighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <style>
+    .syntaxhighlighter {
+      font-size: 0.5em !important;
+    }
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+
+      <article class='biglogo'>
+      </article>
+
+      <article>
+        <h1>
+          Papel do QA na criação de 
+          <br>
+          Cenários na Titans
+        </h1>
+        <p>
+          Reinaldo Nolasco Sanches
+          <br>
+          Jun 11, 2015
+        </p>
+      </article>
+      
+      <article>
+        <h3>
+          Responsabilidades do QA
+        </h3>
+        <ul>
+          <li>
+            Ajudar na criação dos cenários de testes junto ao PO
+          </li>
+          <li>
+            Testar a entrega da funcionalidade pelos desenvolvedores
+          </li>
+          <li>
+            Aceitar a entrega da funcionalidade
+          </li>
+        </ul>
+        <p>
+          ...e continuar automatizando testes.
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          Automatização de testes
+        </h3>
+        <p>
+          A melhor maneira de automatizar testes em Branding é usando Python + Selenium
+        </p>
+        <pre class="brush: python">
+          ...
+          driver.get("http://titansgroup.com.br")
+          ...
+          elem = driver.find_element_by_name("q")
+          ...
+          elem.send_keys("titans")
+          elem.send_keys(Keys.RETURN)
+          ...
+          assert "Titans" in driver.title
+          ...
+        </pre>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Atividades e Resultados do BDD
+        </h3>
+        <img src="images/The principal activities and outcomes of BDD - BDD_in_Action - page 16 - pt_BR.png" />
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Histórias de Usuário
+        </h3>
+        <img src="images/Examples play a primary role in BDD - BDD_in_Action - page 17.png" />
+        <p>
+          <b>Chris Matts</b> sugeriu que "caçar o valor" era o primeiro passo para garantir o êxito software, e propôs esta alternativa como parte de Injeção de Funcionalidade.
+        </p>
+        <pre>"A fim de {receber benefício} como um {papel}, eu quero {meta/desejo}"</pre>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Cenários
+        </h3>
+        <img src="images/Executable specifications - BDD_in_Action - page 22.png" />
+        <p>Exemplos</p>
+        <pre class="brush: gherkin">
+Funcionalidade: mostrando o behave
+
+  Cenário: rodar um teste simples
+     Dado que temos o behave instalado
+   Quando implementamos um teste
+    Então o behave vai testar isso para nós
+        </pre>
+        <p>Especificações Executáveis</p>
+        <pre class="brush: python">
+@given('que temos o behave instalado')
+def step_impl(context):
+    pass
+
+@when('implementamos um teste')
+def step_impl(context):
+    assert True is not False
+
+@then('o behave vai testar isso para nós')
+def step_impl(context):
+    assert context.failed is False
+        </pre>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Cenários (Exemplos)
+        </h3>
+        <pre class="brush: gherkin">
+Funcionalidade: Registro de um novo usuário para acesso a loja
+  A fim de ter uma conta na loja de Segurança
+  como um usuário,
+  eu quero fazer o registro e ter acesso a loja
+
+  Cenário: Registro de um novo usuário com dados válidos
+     Dado um número de celular válido
+   Quando eu faço o registro na loja
+    Então eu recebo um SMS de boas vindas
+        E tenho acesso a pagina de Minha Conta
+        </pre>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Cenários (Especificações Executáveis)
+        </h3>
+        <pre class="brush: python">
+@given('que temos o behave instalado')
+def step_impl(context):
+    pass
+
+@when('implementamos um teste')
+def step_impl(context):
+    assert True is not False
+
+@then('o behave vai testar isso para nós')
+def step_impl(context):
+    assert context.failed is False
+        </pre>
+      </article>
+
+      <article>
+        <h3>
+          Injeção de Funcionalidade
+        </h3>
+        <ul>
+          <li>
+            Use this template to create your presentation
+          </li>
+          <li>
+            Use the provided color palette, box and arrow graphics, and
+            chart styles
+          </li>
+          <li>
+            Instructions are provided to assist you in using this
+            presentation template effectively
+          </li>
+          <li>
+            At all times strive to maintain Google's corporate look and feel
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Linguagem Ubíqua
+        </h3>
+        <ul class="build">
+          <li>
+            This is an example of a list
+          </li>
+          <li>
+            The list items fade in
+          </li>
+          <li>
+            Last one!
+          </li>
+        </ul>
+
+        <div class="build">
+          <p>Any element with child nodes can build.</p>
+          <p>It doesn't have to be a list.</p>
+        </div>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Slide with bullet points (small font)
+        </h3>
+        <ul>
+          <li>
+            Use this template to create your presentation
+          <li>
+            Use the provided color palette, box and arrow graphics, and
+            chart styles
+          <li>
+            Instructions are provided to assist you in using this
+            presentation template effectively
+          <li>
+            At all times strive to maintain Google's corporate look and feel
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Slide with a table
+        </h3>
+        
+        <table>
+          <tr>
+            <th>
+              Name
+            <th>
+              Occupation
+          <tr>
+            <td>
+              Luke Mahé
+            <td>
+              V.P. of Keepin’ It Real
+          <tr>
+            <td>
+              Marcin Wichary
+            <td>
+              The Michael Bay of Doodles
+        </table>
+      </article>
+      
+      <article class='smaller'>
+        <h3>
+          Slide with a table (smaller text)
+        </h3>
+        
+        <table>
+          <tr>
+            <th>
+              Name
+            <th>
+              Occupation
+          <tr>
+            <td>
+              Luke Mahé
+            <td>
+              V.P. of Keepin’ It Real
+          <tr>
+            <td>
+              Marcin Wichary
+            <td>
+              The Michael Bay of Doodles
+        </table>
+      </article>
+      
+      <article>
+        <h3>
+          Styles
+        </h3>
+        <ul>
+          <li>
+            <span class='red'>class="red"</span>
+          <li>
+            <span class='blue'>class="blue"</span>
+          <li>
+            <span class='green'>class="green"</span>
+          <li>
+            <span class='yellow'>class="yellow"</span>
+          <li>
+            <span class='black'>class="black"</span>
+          <li>
+            <span class='white'>class="white"</span>
+          <li>
+            <b>bold</b> and <i>italic</i>
+        </ul>
+      </article>
+      
+      <article>
+        <h2>
+          Segue slide
+        </h2>
+      </article>
+
+      <article>
+        <h3>
+          Slide with an image
+        </h3>
+        <p>
+          <img style='height: 500px' src='images/example-graph.png'>
+        </p>
+        <div class='source'>
+          Source: Sergey Brin
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Slide with an image (centered)
+        </h3>
+        <p>
+          <img class='centered' style='height: 500px' src='images/example-graph.png'>
+        </p>
+        <div class='source'>
+          Source: Larry Page
+        </div>
+      </article>
+
+      <article class='fill'>
+        <h3>
+          Image filling the slide (with optional header)
+        </h3>
+        <p>
+          <img src='images/example-cat.jpg'>
+        </p>
+        <div class='source white'>
+          Source: Eric Schmidt
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          This slide has some code
+        </h3>
+        <section>
+        <pre>
+&lt;script type='text/javascript'&gt;
+  // Say hello world until the user starts questioning
+  // the meaningfulness of their existence.
+  function helloWorld(world) {
+    for (var i = 42; --i &gt;= 0;) {
+      alert('Hello ' + String(world));
+    }
+  }
+&lt;/script&gt;
+&lt;style&gt;
+  p { color: pink }
+  b { color: blue }
+  u { color: 'umber' }
+&lt;/style&gt;
+</pre>
+        </section>
+      </article>
+      
+      <article class='smaller'>
+        <h3>
+          This slide has some code (small font)
+        </h3>
+        <section>
+        <pre>
+&lt;script type='text/javascript'&gt;
+  // Say hello world until the user starts questioning
+  // the meaningfulness of their existence.
+  function helloWorld(world) {
+    for (var i = 42; --i &gt;= 0;) {
+      alert('Hello ' + String(world));
+    }
+  }
+&lt;/script&gt;
+&lt;style&gt;
+  p { color: pink }
+  b { color: blue }
+  u { color: 'umber' }
+&lt;/style&gt;
+</pre>
+        </section>
+      </article>
+      
+      <article>
+        <q>
+          The best way to predict the future is to invent it.
+        </q>
+        <div class='author'>
+          Alan Kay
+        </div>
+      </article>
+      
+      <article class='smaller'>
+        <q>
+          A distributed system is one in which the failure of a computer 
+          you didn’t even know existed can render your own computer unusable.
+        </q>
+        <div class='author'>
+          Leslie Lamport
+        </div>
+      </article>
+      
+      <article class='nobackground'>
+        <h3>
+          A slide with an embed + title
+        </h3>
+        
+        <iframe src='http://www.google.com/doodle4google/history.html'></iframe>
+      </article>
+
+      <article class='nobackground'>
+        <iframe src='http://www.google.com/doodle4google/history.html'></iframe>
+      </article>
+
+      <article class='fill'>
+        <h3>
+          Full-slide embed with (optional) slide title on top
+        </h3>
+        <iframe src='http://www.google.com/doodle4google/history.html'></iframe>
+      </article>
+
+      <article>
+        <h3>
+          Livros
+        </h3>
+        
+        <div>
+          <div style="float: left; margin-right: 10px"><img src="images/BDD in Action cover.jpg" /></div>
+          <div>
+            <a href='http://www.manning.com/smart/'>BDD in Action</a><br>
+            <em>Behavior-Driven Development for the whole software lifecycle</em><br>
+            <b>John Ferguson Smart</b>
+          </div>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Links
+        </h3>
+        
+        <ul>
+          <li>
+            <a href='http://www.infoq.com/interviews/matts-commitment-bdd'>Chris Matts on BDD, Feature Injection and Commitment</a>
+        </ul>
+      </article>
+
+    </section>
+
+    <script type="text/javascript">
+      SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
