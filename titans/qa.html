@@ -135,6 +135,7 @@ Cenário: Transferir dinheiro para a poupança
         </pre>
         <p>Especificações Executáveis</p>
         <pre class="brush: python">
+...
 @given('que minha Conta Corrente tem um balanço de {value}')
 def step_impl(context, value):
     pass
@@ -161,6 +162,8 @@ Funcionalidade: Registro de um novo usuário para acesso a loja
    Quando eu faço o registro na loja
     Então eu recebo um SMS de boas vindas
         E tenho acesso a pagina de Minha Conta
+
+...
         </pre>
       </article>
 
@@ -169,17 +172,25 @@ Funcionalidade: Registro de um novo usuário para acesso a loja
           Cenários (Especificações Executáveis)
         </h3>
         <pre class="brush: python">
-@given('que temos o behave instalado')
+...
+
+@given('um número de celular válido')
 def step_impl(context):
     pass
 
-@when('implementamos um teste')
+@when('eu faço o registro na loja')
 def step_impl(context):
     assert True is not False
 
-@then('o behave vai testar isso para nós')
+@then('eu recebo um SMS de boas vindas')
 def step_impl(context):
     assert context.failed is False
+
+@then('tenho acesso a pagina de Minha Conta')
+def step_impl(context):
+    assert context.failed is False
+
+...
         </pre>
       </article>
 
@@ -200,6 +211,7 @@ def step_impl(context):
         <h3>
           Linguagem Ubíqua
         </h3>
+
         <ul>
           <li>Uma linguagem estruturada em torno do modelo do dominio</li>
           <li>O vocabulario desta linguagem inclue o nome das operações importantes</li>
