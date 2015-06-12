@@ -12,11 +12,13 @@ function select_section(_select) {
 function set_date() {
     var application_response = document.getElementById("application_response")
     var ted_title = document.getElementById("ted_title")
+    var ted_title_bnet = document.getElementById("ted_title_bnet")
     var start_date = new Date()
     var end_date = new Date()
     end_date.setDate(start_date.getDate() + 14)
 
     ted_title.innerHTML = ted_title.innerHTML.replace('{ted_start_trial}', start_date.toLocaleDateString('pt-BR')).replace('{ted_end_trial}', end_date.toLocaleDateString('pt-BR'))
+    ted_title_bnet.innerHTML = ted_title_bnet.innerHTML.replace('{ted_start_trial}', start_date.toLocaleDateString('pt-BR')).replace('{ted_end_trial}', end_date.toLocaleDateString('pt-BR'))
 
     var start_trial_array = start_date.toString().split(' ')
     var end_date_array = end_date.toString().split(' ')
@@ -55,4 +57,15 @@ hide_specific_sections()
 function show_specific_sections(id) {
     hide_specific_sections()
     document.getElementById('gs_' + id).style.display = '';
+
+    if (id == 'hots') {
+        document.getElementById('input_bnet').style.display = '';
+        document.getElementById('ted_nickname').style.display = 'none';
+        document.getElementById('ted_title').style.display = 'none';
+        document.getElementById('ted_nickname_bnet').style.display = '';
+        document.getElementById('ted_title_bnet').style.display = '';
+    } else {
+        document.getElementById('ted_title').style.display = '';
+        document.getElementById('ted_nickname').style.display = '';
+    }
 }

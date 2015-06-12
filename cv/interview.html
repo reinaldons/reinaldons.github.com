@@ -14,17 +14,17 @@
         <select onchange="select_section(this)">
             <option id="general">General</option>
             <option id="lol">League of Legends</option>
-            <option id="">Archeage</option>
-            <option id="">H1Z1</option>
+            <option id="archeage">Archeage</option>
+            <option id="h1z1">H1Z1</option>
             <option id="smite">Smite</option>
-            <option id="">Counter Strike</option>
+            <option id="csgo">Counter Strike</option>
             <option id="dota">Dota</option>
-            <option id="">Path of Exile</option>
+            <option id="poe">Path of Exile</option>
             <option id="hots">Heroes of the Storm</option>
-            <option id="">TERA</option>
-            <option id="">Elder Scrolls Online</option>
-            <option id="">Warframe</option>
-            <option id="">Grand Theft Auto</option>
+            <option id="tera">TERA</option>
+            <option id="eso">Elder Scrolls Online</option>
+            <option id="warframe">Warframe</option>
+            <option id="gta">Grand Theft Auto</option>
         </select>
         <h1>Application</h1>
         <p id="application_accept" class="block">
@@ -50,29 +50,53 @@
                 <li><a href="http://forums.thechaosvanguard.co.uk/showthread.php?5120-Daily-Inhouse-Schedule" target="blank">Daily Inhouse Schedule</a></li>
                 <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?14" target="blank">League of Legends TED</a></li>
             </ul>
+            <ul id="gs_archeage" class="specific_section">
+                <li><h2>YOU CAN'T HANDLE THIS APPLICATION. LEAVE THIS APPLICANT ALONE.</h2></li>
+            </ul>
             <ul id="gs_smite" class="specific_section">
                 <li>Invite to Smite Clan</li>
                 <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?21" target="blank">Smite TED</a></li>
             </ul>
+            <ul id="gs_csgo" class="specific_section">
+                <li>Invite to Steam CS:GO group</li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?11" target="blank">CS:GO TED</a></li>
+            </ul>
             <ul id="gs_dota" class="specific_section">
                 <li>Invite to Steam Group and the Ingame Guild</li>
-                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?12" target="blank">Smite TED</a></li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?12" target="blank">Dota 2 TED</a></li>
             </ul>
             <ul id="gs_hots" class="specific_section">
                 <li>BattleTag as nickname on TS</li>
                 <li>Chat: [EU] /join CV HotS or [NA] /join Chaos Vanguard</li>
                 <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?133" target="blank">Heroes of the Storm TED</a></li>
             </ul>
+            <ul id="gs_tera" class="specific_section">
+                <li>Send an application to the guild on the game. Make sure they put who they are on the forums.</li>
+                <li><a href="http://forums.thechaosvanguard.co.uk/showthread.php?5340" target="blank">Community Guidelines and Goals</a></li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?165" target="blank">TERA TED</a></li>
+            </ul>
+            <ul id="gs_warframe" class="specific_section">
+                <li>Reply this thread with in-game name: <a href="http://forums.thechaosvanguard.co.uk/showthread.php?6650">Deus Ex Tempus Clans Recruitment Page</a></li>
+                <li>CV have members primarily from the alliances <b>Tenno Above All</b> and <b>Deus Ex Tempus</b> (Deus is our primary supporter).</li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?212" target="blank">Warframe TED</a></li>
+            </ul>
+            <ul id="gs_gta" class="specific_section">
+                <li>Apply to CV on <a href="http://socialclub.rockstargames.com/crew/the_chaos_vanguard">Social Club</a></li>
+                <li>TED section: <a href="http://forums.thechaosvanguard.co.uk/forumdisplay.php?225" target="blank">GTA V TED</a></li>
+            </ul>
         </p>
 
-        <p>Forum Username: <input type="text" id="fname" onchange="change_tag(this, 'forum_name')"> Battle.net Tag: <input type="text" id="bnet" onchange="change_tag(this, 'bnet_tag')">
+        <p>Forum Username: <input type="text" id="fname" onchange="change_tag(this, 'forum_name')"> 
+        <span id="input_bnet" class="specific_section">Battle.net Tag: <input type="text" id="bnet" onchange="change_tag(this, 'bnet_tag')"></span>
         Region: <select onchange="change_region(this)">
             <option>NA</option>
             <option>EU</option>
         </select></p>
-        <p id="ted_title" class="block"><span name="forum_name">###</span> / <span name="bnet_tag">###</span> - {ted_start_trial} - {ted_end_trial} - <span name="region">NA</span></p>
+        <p id="ted_title" class="block"><span name="forum_name">###</span> - {ted_start_trial} - {ted_end_trial} - <span name="region">NA</span></p>
+        <p id="ted_title_bnet" class="block specific_section"><span name="forum_name">###</span> / <span name="bnet_tag">###</span> - {ted_start_trial} - {ted_end_trial} - <span name="region">NA</span></p>
         <p class="block">
-            Please leave feedback for <span name="forum_name">###</span> (<span name="bnet_tag">###</span>)<br>
+            <span id="ted_nickname">Please leave feedback for <span name="forum_name">###</span></span>
+            <span id="ted_nickname_bnet" class="specific_section">Please leave feedback for <span name="forum_name">###</span> (<span name="bnet_tag">###</span>)</span><br>
             <br>
             Please vote either +1 or -1, note you must provide a reason for your vote.<br>
             <br>
