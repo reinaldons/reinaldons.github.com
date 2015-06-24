@@ -11,6 +11,7 @@ function select_section(_select) {
 
 function set_date() {
     var application_response = document.getElementById("application_response")
+    var general_trial = document.getElementById("general_trial")
     var ted_title = document.getElementById("ted_title")
     var ted_title_bnet = document.getElementById("ted_title_bnet")
     var start_date = new Date()
@@ -24,6 +25,7 @@ function set_date() {
     var end_date_array = end_date.toString().split(' ')
 
     application_response.innerHTML = application_response.innerHTML.replace('{start_trial}', start_trial_array[2] + ' ' + start_trial_array[1]).replace('{end_trial}', end_date_array[2] + ' ' + end_date_array[1])
+    general_trial.innerHTML = general_trial.innerHTML.replace('{start_trial}', start_trial_array[2] + ' ' + start_trial_array[1]).replace('{end_trial}', end_date_array[2] + ' ' + end_date_array[1])
 }
 
 set_date()
