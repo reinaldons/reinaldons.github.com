@@ -21,7 +21,7 @@ html {
 
 a,
 a:visited {
-    color: #81DAF5;
+    color: #3399CC;
 }
 
 hr {
@@ -60,6 +60,7 @@ textarea {
 }
 
 .block {
+    background-color: #232323;
     border: 1px solid #444;
     padding: 0.5em;
 }
@@ -70,6 +71,11 @@ input, select {
 
 h1 {
     border-bottom: 1px solid #666;
+    color: #33FFCC;
+}
+
+h2 {
+    color: #33CCCC;
 }
 
 
