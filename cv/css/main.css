@@ -18,6 +18,9 @@ html {
     text-shadow: none;
 }
 
+.alert {
+  color: #33CCCC;
+}
 
 a,
 a:visited {
