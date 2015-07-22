@@ -30,8 +30,9 @@
         function set_date() {
           date = get_date();
 
-          document.getElementById('date').innerHTML = date.toDateString();
-          document.getElementById('local').innerHTML = date.toLocaleString();
+          document.getElementById('standard').innerHTML = date.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+          document.getElementById('long').innerHTML = date.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZoneName: 'short' });
+          document.getElementById('local').innerHTML = date.toLocaleString('ca');
           document.getElementById('iso').innerHTML = date.toISOString();
         }
         </script>
@@ -39,7 +40,8 @@
     <body style="padding: 20px;">
         <h1>Date Tool</h1>
         <p>timestamp <input type="text" id="timestamp"/> <input type="button" value="set date" onclick="set_date()" /></p>
-        <p><span id="date"></span> date</p>
+        <p><span id="standard"></span> standard</p>
+        <p><span id="long"></span> long</p>
         <p><span id="local"></span> local</p>
         <p><span id="iso"></span> iso</p>
     </body>
