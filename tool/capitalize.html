@@ -10,11 +10,18 @@
         <link rel="stylesheet" href="css/normalize.css">
 
         <script>
-        function capitalize() {
-            t_original = document.getElementById("original");
-            t_new = document.getElementById("new");
+        function boxes() {
+          return {original: document.getElementById("original"), new: document.getElementById("new")}
+        }
 
-            t_new.value = t_original.value.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+        function capitalize() {
+          b = boxes();
+          b.new.value = b.original.value.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+        }
+
+        function to_low() {
+          b = boxes();
+          b.new.value = b.original.value.toLowerCase();
         }
         </script>
     </head>
@@ -22,9 +29,10 @@
         <h1>Capitalize Words</h1>
         <div style="padding: 10px 10px; text-align: center; border: 1px solid #999; height: 420px; width: 670px">
             <textarea id="original" rows="10" cols="72"></textarea><br>
-            <span style="cursor: pointer; font-size: 14pt;" onclick="capitalize()">&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr; click here &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;</span><br>
+            <span style="cursor: pointer; font-size: 14pt;" onclick="capitalize()">&darr; capitalize &darr;</span>
+            ---
+            <span style="cursor: pointer; font-size: 14pt;" onclick="to_low()">&darr; lower case &darr;</span><br>
             <textarea id="new" rows="10" cols="72"></textarea>
         </div>
     </body>
 </html>
-
