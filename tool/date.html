@@ -7,9 +7,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script src="js/main.js"></script>
         <link rel="stylesheet" href="css/normalize.css">
 
         <style>
+          h1 { color: #999 }
           span { color: #666; border: 1px solid #aaa; padding: 6px }
           p { color: #aaa }
         </style>
@@ -30,8 +32,9 @@
         function set_date() {
           date = get_date();
 
+          document.getElementById('timezone').innerHTML = date.toLocaleString('en-US', { timeZoneName: 'short' }).split(' ').last();
           document.getElementById('standard').innerHTML = date.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
-          document.getElementById('long').innerHTML = date.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZoneName: 'short' });
+          document.getElementById('long').innerHTML = date.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
           document.getElementById('local').innerHTML = date.toLocaleString('ca');
           document.getElementById('iso').innerHTML = date.toISOString();
         }
@@ -40,10 +43,12 @@
     <body style="padding: 20px;">
         <h1>Date Tool</h1>
         <p>timestamp <input type="text" id="timestamp"/> <input type="button" value="set date" onclick="set_date()" /></p>
+        <br>
+        <p><span id="timezone"></span> current timezone</p>
         <p><span id="standard"></span> standard</p>
         <p><span id="long"></span> long</p>
         <p><span id="local"></span> local</p>
-        <p><span id="iso"></span> iso</p>
+        <p><span id="iso"></span> iso (GMT 0)</p>
     </body>
 
     <script>set_date()</script>
