@@ -23,15 +23,25 @@
           b = boxes();
           b.new.value = b.original.value.toLowerCase();
         }
+
+	function to_upper() {
+          b = boxes();
+          b.new.value = b.original.value.toUpperCase();
+        }
         </script>
     </head>
     <body style="padding: 20px;">
         <h1>Capitalize Words</h1>
         <div style="padding: 10px 10px; text-align: center; border: 1px solid #999; height: 420px; width: 670px">
             <textarea id="original" rows="10" cols="72"></textarea><br>
+
             <span style="cursor: pointer; font-size: 14pt;" onclick="capitalize()">&darr; capitalize &darr;</span>
             ---
-            <span style="cursor: pointer; font-size: 14pt;" onclick="to_low()">&darr; lower case &darr;</span><br>
+            <span style="cursor: pointer; font-size: 14pt;" onclick="to_low()">&darr; lower case &darr;</span>
+            ---
+            <span style="cursor: pointer; font-size: 14pt;" onclick="to_upper()">&darr; upper case &darr;</span>
+
+            <br>
             <textarea id="new" rows="10" cols="72"></textarea>
         </div>
     </body>
