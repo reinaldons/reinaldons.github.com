@@ -35,6 +35,12 @@
         to { background-color: #01DFD7; -webkit-box-shadow: 0 0 9px #0B3B39; }
       }
 
+      @-webkit-keyframes greyPulse {
+        from { background-color: #808080; -webkit-box-shadow: 0 0 9px #333;}
+        50% { background-color: #909090; -webkit-box-shadow: 0 0 18px #909090; }
+        to { background-color: #808080; -webkit-box-shadow: 0 0 9px #333; }
+      }
+
       a.button {
         text-decoration: none;
         color: #FFF;
@@ -50,6 +56,7 @@
       .red.button { -webkit-animation-name: redPulse; }
       .orange.button { -webkit-animation-name: orangePulse; }
       .cian.button { -webkit-animation-name: cianPulse; }
+      .grey.button { -webkit-animation-name: greyPulse; }
 
       .wall-of-buttons { position: absolute; top: 50%; left: 60%; margin-left: -50px; margin-top: -50px }
       .wall-of-buttons a.button { display: inline-block; margin: 0 10px 9px 0; }
@@ -67,8 +74,9 @@
     <div class="wall-of-buttons">
       <a class="large blue button" href="http://facebook.com/reinaldo">facebook</a>
       <a class="large green button" href="http://twitter.com/rnsanches">twitter</a>
-      <a class="large red button" href="http://github.com/reinaldons">github</a>
+      <a class="large grey button" href="http://github.com/reinaldons">github</a>
       <a class="large orange button" href="http://linkedin.com/in/reinaldo">linkedin</a>
+      <a class="large red button" href="https://last.fm/user/r_linux">last.fm</a>
     </div>
   </body>
 </html>
