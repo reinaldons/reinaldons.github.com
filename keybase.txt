@@ -1,1 +1,56 @@
 
+==================================================================
+https://keybase.io/reinaldons
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://reinaldons.github.io
+  * I am reinaldons (https://keybase.io/reinaldons) on keybase.
+  * I have a public key ASC2CwhyAmo533WFODfbTiTfqsOBHFRzCHrOOU65XkcyLAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101fcb002c47f773f6afb318f3209d5a36b33a53ba63e710b6c100fc233d1c59e5b0a",
+      "host": "keybase.io",
+      "kid": "0120b60b0872026a39df75853837db4e24dfaac3811c5473087ace394eb95e47322c0a",
+      "uid": "adc53076d006f618af44b7aea3e97c19",
+      "username": "reinaldons"
+    },
+    "merkle_root": {
+      "ctime": 1522165301,
+      "hash": "c147f74091760a15b27bd8e15e7affeb8a4250cc71676e2d2731511220565508ee5b16b91bdde6eb1634e8b2ac459ee86aaf1d01a3dfcdf58535ab6bb28f7174",
+      "hash_meta": "260ea63017592f1ac1c8f7d19f7294e913fe7842348e8a63731cacb374c6305e",
+      "seqno": 2295530
+    },
+    "service": {
+      "hostname": "reinaldons.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.45"
+  },
+  "ctime": 1522165411,
+  "expire_in": 504576000,
+  "prev": "6254cf77167ee7e3523c3c5fb24821e49e2794457e3c934cc944fab9d8653248",
+  "seqno": 43,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgtgsIcgJqOd91hTg3204k36rDgRxUcwh6zjlOuV5HMiwKp3BheWxvYWTFA097ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxZmNiMDAyYzQ3Zjc3M2Y2YWZiMzE4ZjMyMDlkNWEzNmIzM2E1M2JhNjNlNzEwYjZjMTAwZmMyMzNkMWM1OWU1YjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYjYwYjA4NzIwMjZhMzlkZjc1ODUzODM3ZGI0ZTI0ZGZhYWMzODExYzU0NzMwODdhY2UzOTRlYjk1ZTQ3MzIyYzBhIiwidWlkIjoiYWRjNTMwNzZkMDA2ZjYxOGFmNDRiN2FlYTNlOTdjMTkiLCJ1c2VybmFtZSI6InJlaW5hbGRvbnMifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MjIxNjUzMDEsImhhc2giOiJjMTQ3Zjc0MDkxNzYwYTE1YjI3YmQ4ZTE1ZTdhZmZlYjhhNDI1MGNjNzE2NzZlMmQyNzMxNTExMjIwNTY1NTA4ZWU1YjE2YjkxYmRkZTZlYjE2MzRlOGIyYWM0NTllZTg2YWFmMWQwMWEzZGZjZGY1ODUzNWFiNmJiMjhmNzE3NCIsImhhc2hfbWV0YSI6IjI2MGVhNjMwMTc1OTJmMWFjMWM4ZjdkMTlmNzI5NGU5MTNmZTc4NDIzNDhlOGE2MzczMWNhY2IzNzRjNjMwNWUiLCJzZXFubyI6MjI5NTUzMH0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJyZWluYWxkb25zLmdpdGh1Yi5pbyIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjQ1In0sImN0aW1lIjoxNTIyMTY1NDExLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6IjYyNTRjZjc3MTY3ZWU3ZTM1MjNjM2M1ZmIyNDgyMWU0OWUyNzk0NDU3ZTNjOTM0Y2M5NDRmYWI5ZDg2NTMyNDgiLCJzZXFubyI6NDMsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RABXqYcyWGpSQIqRm6J4ePLuYCSeKFlg/k8PMo1lKaRBDN0MXKrpVDCcXOuW1rJfwp9s9jHaTr72dB8pJemZSUBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIo0ZtrQenpW1F/BAX6UOEf0hr1HM5/+V/6yCY6kJTvVo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/reinaldons
+
+==================================================================
