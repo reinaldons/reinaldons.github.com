@@ -14,16 +14,22 @@
     <h1>Clan Boss Lap Turn</h1>
 
     <div style="width: 500px">
-      <div class="form-group">
-        <label for="cb-speed">Clan Boss Difficult</label>
-        <select class="form-control" id="cb-speed">
-          <option value="130">Easy</option>
-          <option value="140">Normal</option>
-          <option value="150">Hard</option>
-          <option value="160">Brutal</option>
-          <option value="170" selected>Nightmare</option>
-          <option value="190">Ultra Nightmare</option>
-        </select>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="cb-speed">Clan Boss Difficult</label>
+          <select class="form-control" id="cb-speed">
+            <option value="130">Easy</option>
+            <option value="140">Normal</option>
+            <option value="150">Hard</option>
+            <option value="160">Brutal</option>
+            <option value="170" selected>Nightmare</option>
+            <option value="190">Ultra Nightmare</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="num-turns">Turns</label>
+          <input type="text" class="form-control" id="num-turns" value="10">
+        </div>
       </div>
 
       <div class="form-group">
@@ -62,11 +68,11 @@
       <button type="submit" class="btn btn-primary" id="calc-btn">Calculate</button>
     </div>
 
-    <p style="margin-top: 20px; margin-bottom: 0;">Clan Boss Turns: 10</p>
-    <div class="progress" id="cb-lap"></div>
+    <p style="margin-top: 20px; margin-bottom: 0;">Clan Boss Turns: <span id="cb-turns"></span></p>
+    <p style="margin-bottom: 0;">Champion Turns: <span id="champion-turns"></span></p>
 
-    <p style="margin-top: 5px; margin-bottom: 0;">Champion Turns: <span id="champion-turns"></span></p>
-    <div class="progress" id="champion-lap"></div>
+    <div class="progress" style="margin-top: 20px; margin-bottom: 0;" id="cb-lap"></div>
+    <div class="progress" style="margin-top: 2px; margin-bottom: 0;" id="champion-lap"></div>
   </body>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -74,6 +80,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
   <script type="text/javascript">
+    var numOfTurns = $( "#num-turns" ).val();
     var cbSpeed = 0;
     var a3Cooldown = 0;
     var a2Cooldown = 0;
@@ -94,6 +101,7 @@
     };
 
     function reset() {
+      numOfTurns = $( "#num-turns" ).val();
       a3Cooldown = 0;
       a2Cooldown = 0;
     }
@@ -129,12 +137,13 @@
 
     function createLapTurns(bar, speed, a2, a3) {
       var width = ( cbSpeed / speed ) * 100;
-      var cbWidth = ( ( cbSpeed / cbSpeed ) * 100 ) * 10;
+      var cbWidth = ( ( cbSpeed / cbSpeed ) * 100 ) * numOfTurns;
       var championNumInterations = cbWidth / width
       var numInterations = Math.floor( championNumInterations );
       var leftover = championNumInterations - Math.floor( championNumInterations );
 
       $( bar ).empty();
+      $( "#cb-turns" ).html( numOfTurns );
       $( "#champion-turns" ).html( championNumInterations.toFixed(2) );
 
       for ( i = 1; i < numInterations + 1; i++ ) {
@@ -165,11 +174,12 @@
     $( document ).ready(function() {
       $( "#cb-speed option:selected" ).each( function() {
         cbSpeed = $( this ).val()
-        createLapTurns($( "#cb-lap" ), cbSpeed, 3, 3);
+        createLapTurns( $( "#cb-lap" ), cbSpeed, 3, 3 );
       });
 
       $( "#calc-btn" ).click( function() {
         reset();
+        createLapTurns( $( "#cb-lap" ), cbSpeed, 3, 3 );
         championProcess();
       });
 
@@ -177,7 +187,7 @@
         $( "#cb-speed option:selected" ).each( function() {
           reset();
           cbSpeed = $( this ).val()
-          createLapTurns($( "#cb-lap" ), cbSpeed, 3, 3);
+          createLapTurns( $( "#cb-lap" ), cbSpeed, 3, 3 );
           championProcess();
         });
       });
