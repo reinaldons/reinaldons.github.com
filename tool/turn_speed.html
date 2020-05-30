@@ -18,7 +18,7 @@
         <label for="cb-speed">Clan Boss Difficult</label>
         <select class="form-control" id="cb-speed">
           <option value="130">Easy</option>
-          <option value="140">Med</option>
+          <option value="140">Normal</option>
           <option value="150">Hard</option>
           <option value="160">Brutal</option>
           <option value="170" selected>Nightmare</option>
@@ -75,8 +75,12 @@
 
   <script type="text/javascript">
     var cbSpeed = 0;
-    var a3_cooldown = 0;
-    var a2_cooldown = 0;
+    var a3Cooldown = 0;
+    var a2Cooldown = 0;
+    var speedBuff = 0;
+    var speedBuffTurns = 0;
+    var speedBuffCooldown = 0;
+    var speedBuffSkill = 0;
     var divAttrs = {
       class: "progress-bar",
       role: "progressbar",
@@ -89,19 +93,38 @@
       }
     };
 
+    function reset() {
+      a3Cooldown = 0;
+      a2Cooldown = 0;
+    }
+
+    function championProcess() {
+      reset();
+      speedBuff = $( "#speed-buff" ).val();
+      speedBuffTurns = $( "#speed-buff-turns" ).val();
+      speedBuffSkill = $( "#speed-buff-skill" ).val();
+      createLapTurns( $( "#champion-lap" ), $( "#champion-speed" ).val(), $( "#a2-turns" ).val(), $( "#a3-turns" ).val() );
+    }
+
     function skillTriggered(a2, a3) {
-      console.log(`${a3_cooldown} / ${a2_cooldown}`)
-      if ( a3 > 1 && a3_cooldown < 1 ) {
-        a3_cooldown = a3;
+      speedBuffCooldown--;
+      if ( a3 > 1 && a3Cooldown < 1 ) {
+        a3Cooldown = a3;
         divAttrs.class = "progress-bar bg-danger";
-      } else if ( a2 > 1 && a2_cooldown < 1 ) {
-        a2_cooldown = a2;
+        if ( speedBuff && speedBuffSkill == 3 ) {
+          speedBuffCooldown = speedBuffTurns;
+        }
+      } else if ( a2 > 1 && a2Cooldown < 1 ) {
+        a2Cooldown = a2;
         divAttrs.class = "progress-bar bg-warning";
+        if ( speedBuff && speedBuffSkill == 2 ) {
+          speedBuffCooldown = speedBuffTurns;
+        }
       } else {
         divAttrs.class = "progress-bar bg-info";
       }
-      a3_cooldown--;
-      a2_cooldown--;
+      a3Cooldown--;
+      a2Cooldown--;
     }
 
     function createLapTurns(bar, speed, a2, a3) {
@@ -111,16 +134,20 @@
       var numInterations = Math.floor( championNumInterations );
       var leftover = championNumInterations - Math.floor( championNumInterations );
 
-      divAttrs["aria-valuenow"] = width;
-      divAttrs.css.width = width;
-
-      console.log( numInterations );
-
       $( bar ).empty();
       $( "#champion-turns" ).html( championNumInterations.toFixed(2) );
 
       for ( i = 1; i < numInterations + 1; i++ ) {
-        skillTriggered(a2, a3);
+        skillTriggered( a2, a3 );
+
+        if ( speedBuff && speedBuffCooldown < speedBuffTurns ) {
+          var buffedWidth = width - ( ( speedBuff / 100 ) * width );
+          divAttrs["aria-valuenow"] = buffedWidth;
+          divAttrs.css.width = buffedWidth;
+        } else {
+          divAttrs["aria-valuenow"] = width;
+          divAttrs.css.width = width;
+        }
 
         var div = $( "<div>", divAttrs );
         $( bar ).append( div );
@@ -128,7 +155,7 @@
 
       // Fill the leftover of bar
       if ( leftover ) {
-        skillTriggered(a2, a3);
+        skillTriggered( a2, a3 );
         divAttrs.css.width = width * leftover;
         var div = $( "<div>", divAttrs );
         $( bar ).append( div );
@@ -142,15 +169,16 @@
       });
 
       $( "#calc-btn" ).click( function() {
-        a3_cooldown = 0;
-        a2_cooldown = 0;
-        createLapTurns( $( "#champion-lap" ), $( "#champion-speed" ).val(), $( "#a2-turns" ).val(), $( "#a3-turns" ).val() );
+        reset();
+        championProcess();
       });
 
       $( "#cb-speed" ).change( function() {
         $( "#cb-speed option:selected" ).each( function() {
+          reset();
           cbSpeed = $( this ).val()
           createLapTurns($( "#cb-lap" ), cbSpeed, 3, 3);
+          championProcess();
         });
       });
     });
